@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ─────────────────────────────────────────────────────────────────────
+     THEME — the only place colours are defined.
+     Values are "R G B" triplets so Tailwind can apply opacity to them.
+     Soft, slightly blue-tinted greys keep the page light without glare.
+     ───────────────────────────────────────────────────────────────────── */
+  :root {
+    --c-page: 233 238 245; /* page background        #E9EEF5 */
+    --c-page-alt: 223 231 241; /* alternating sections  #DFE7F1 */
+    --c-surface: 245 248 252; /* cards & panels        #F5F8FC */
+    --c-line: 200 212 229; /* borders & dividers    #C8D4E5 */
+
+    --c-heading: 16 35 63; /* headings              #10233F */
+    --c-body: 59 78 107; /* body text             #3B4E6B */
+    --c-muted: 86 106 136; /* secondary text        #566A88 */
+
+    --c-brand: 36 83 166; /* primary blue          #2453A6 */
+    --c-brand-hover: 27 63 132; /* primary, hovered      #1B3F84 */
+    --c-brand-soft: 214 226 245; /* pale blue tint        #D6E2F5 */
+    --c-azure: 56 132 196; /* lighter blue accent   #3884C4 */
+
+    --c-accent: 214 158 46; /* warm gold accent      #D69E2E */
+    --c-accent-soft: 246 232 200; /* pale gold tint        #F6E8C8 */
+    --c-accent-strong: 138 92 12; /* gold used for text    #8A5C0C */
+
+    --c-ok: 35 121 79; /* success / WhatsApp    #23794F */
+    --c-ok-soft: 214 238 224; /* pale green tint       #D6EEE0 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-page font-sans text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-heading;
+  }
+
+  ::selection {
+    background: rgb(var(--c-brand) / 0.22);
+  }
+
+  /* Visible keyboard focus everywhere — accessibility baseline */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-page;
+  }
+}
+
+@layer components {
+  /* Shared max-width + padding wrapper used by every page */
+  .section-container {
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
+  }
+
+  .section-anchor {
+    @apply scroll-mt-20;
+  }
+
+  /* Faint grid texture behind hero/page banners */
+  .grid-texture {
+    background-image: linear-gradient(
+        to right,
+        rgb(var(--c-heading) / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgb(var(--c-heading) / 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Shared lift-on-hover behaviour for cards */
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-brand/40 hover:shadow-lift;
+  }
+
+  /* Buttons — one definition, reused everywhere */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-lift active:translate-y-0;
+  }
+
+  .btn-ok {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-ok px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand/30 bg-surface/60 px-6 py-3 text-sm font-semibold text-brand transition-all duration-300 hover:-translate-y-0.5 hover:border-brand hover:bg-surface hover:shadow-card active:translate-y-0;
+  }
+
+  /* Light sweep across a button on hover */
+  .btn-primary::after,
+  .btn-ok::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 35%,
+      rgb(255 255 255 / 0.35) 50%,
+      transparent 65%
+    );
+    transform: translateX(-130%);
+    pointer-events: none;
+  }
+
+  .btn-primary:hover::after,
+  .btn-ok:hover::after {
+    animation: shine 0.9s ease;
+  }
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(130%);
+  }
+}
+
+/* Runs once per route change on the <main> wrapper in MainLayout. */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
