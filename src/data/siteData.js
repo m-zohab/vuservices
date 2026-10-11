@@ -214,7 +214,7 @@ export const projects = [
     tags: ["React", "Firebase", "Tailwind"],
     category: "Web Development",
     type: "image",
-    image: "/student_attandane.jpeg"
+    image: "/student_attandance.jpeg"
   },
   {
     id: "project-4",
