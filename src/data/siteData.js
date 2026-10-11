@@ -204,6 +204,7 @@ export const projects = [
     tags: ["Java", "MySQL"],
     category: "Programming",
     type: "image",
+    image: "/hospital.jpeg"
   },
   {
     id: "project-3",
@@ -212,7 +213,8 @@ export const projects = [
       "A real-time attendance dashboard for instructors, with live updates and exportable reports.",
     tags: ["React", "Firebase", "Tailwind"],
     category: "Web Development",
-    type: "video",
+    type: "image",
+    image: "/student_attandane.jpeg"
   },
   {
     id: "project-4",
@@ -222,6 +224,7 @@ export const projects = [
     tags: ["Node.js", "MongoDB", "React"],
     category: "Web Development",
     type: "image",
+    image: "/e-learning.jpeg"
   },
   {
     id: "project-5",
@@ -231,6 +234,7 @@ export const projects = [
     tags: ["Laravel", "PHP", "MySQL"],
     category: "Databases",
     type: "image",
+    image: "/invoice_bill.jpeg"
   },
   {
     id: "project-6",
@@ -239,25 +243,8 @@ export const projects = [
       "An NLP-driven tool that compares submitted text against a reference corpus and highlights similarity scores.",
     tags: ["Python", "Django", "scikit-learn"],
     category: "AI/ML",
-    type: "video",
-  },
-  {
-    id: "project-7",
-    title: "Campus Companion App",
-    description:
-      "A cross-platform mobile app for VU students to track GDB and assignment deadlines, with push-notification reminders.",
-    tags: ["Flutter", "Dart", "Firebase"],
-    category: "Mobile Apps",
     type: "image",
-  },
-  {
-    id: "project-8",
-    title: "Library Catalogue & Fine Tracker",
-    description:
-      "A normalized relational database project for a university library, with overdue-fine calculation and an admin reporting dashboard.",
-    tags: ["MySQL", "PHP", "phpMyAdmin"],
-    category: "Databases",
-    type: "image",
+    image: "/AI.jpeg"
   },
   {
     id: "project-9",
@@ -266,7 +253,8 @@ export const projects = [
       "A desktop tool that animates sorting and searching algorithms step-by-step, built to strengthen DSA fundamentals for a semester project.",
     tags: ["C++", "SFML"],
     category: "Programming",
-    type: "video",
+    type: "image",
+    image: "/student.jpeg"
   },
 ];
 
