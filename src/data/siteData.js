@@ -64,7 +64,7 @@ export const partners = [
   {
     id: "partner-2",
     name: "Muhammad Zohaib",
-    semester: "4th Semester · BS Computer Science",
+    semester: "BS Computer Science",
     bio: "I handle front-end development and LMS coordination — keeping GDBs, quizzes and assignment uploads on schedule so clients never miss a deadline.",
     image: "/zohab.jpeg",
     initials: "MZ",
