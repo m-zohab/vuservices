@@ -1,3 +1,4 @@
+
 import {
   Github,
   Linkedin,
@@ -19,12 +20,14 @@ export default function PartnerCard({ partner }) {
   } = partner;
 
   const socialClass =
-    "flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-brand transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:bg-brand hover:text-white";
+    "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:bg-brand hover:text-white";
 
+  const whatsappMessage =
+    "Hi! I found your portfolio and I am looking for guidance or service.";
+  
   const whatsappLink = whatsapp
-    ? `https://wa.me/${whatsapp.replace(/\D/g, "")}`
+    ? `https://wa.me/${whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(whatsappMessage)}`
     : "";
-
   return (
     <div className="group card-hover relative overflow-hidden rounded-2xl border border-line bg-surface p-8 shadow-soft">
       <span className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-accent to-brand" />
@@ -59,17 +62,17 @@ export default function PartnerCard({ partner }) {
         {bio}
       </p>
 
-      {/* Email and WhatsApp */}
-      {(email || whatsapp) && (
-        <div className="partner-contact">
+      {/* All contact and social icons */}
+      {(email || whatsapp || github || linkedin) && (
+        <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-line pl-2 pt-5">
           {email && (
             <a
               href={`mailto:${email}`}
               aria-label={`Email ${name}`}
-              className="partner-contact-btn email-btn"
+              title={`Email ${name}`}
+              className={socialClass}
             >
               <Mail size={18} />
-              Email
             </a>
           )}
 
@@ -79,24 +82,20 @@ export default function PartnerCard({ partner }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`WhatsApp ${name}`}
-              className="partner-contact-btn whatsapp-btn"
+              title={`WhatsApp ${name}`}
+              className={`${socialClass} hover:!bg-[#25D366]`}
             >
               <MessageCircle size={18} />
-              WhatsApp
             </a>
           )}
-        </div>
-      )}
 
-      {/* Social media */}
-      {(github || linkedin) && (
-        <div className="mt-4 flex items-center gap-3 pl-2">
           {github && (
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${name}'s GitHub profile`}
+              title="GitHub"
               className={socialClass}
             >
               <Github size={18} />
@@ -109,6 +108,7 @@ export default function PartnerCard({ partner }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${name}'s LinkedIn profile`}
+              title="LinkedIn"
               className={socialClass}
             >
               <Linkedin size={18} />
