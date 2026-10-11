@@ -152,3 +152,50 @@
     scroll-behavior: auto !important;
   }
 }
+```css
+/* ─────────────────────────────────────────
+   PARTNER CARD CONTACT BUTTONS
+   ───────────────────────────────────────── */
+
+@layer components {
+  .partner-contact {
+    @apply mt-6 flex flex-wrap items-center gap-3 border-t border-line pt-5;
+  }
+
+  .partner-contact-btn {
+    @apply inline-flex items-center justify-center gap-2
+      rounded-full px-5 py-3 text-sm font-semibold
+      text-white shadow-soft
+      transition-all duration-300 ease-out
+      hover:-translate-y-0.5 hover:shadow-lift
+      active:translate-y-0;
+  }
+
+  /* Email button — website theme blue */
+  .email-btn {
+    @apply bg-brand hover:bg-brand-hover;
+  }
+
+  /* WhatsApp button — green */
+  .whatsapp-btn {
+    background-color: #25D366;
+    color: #ffffff;
+  }
+
+  .whatsapp-btn:hover {
+    background-color: #1DA851;
+  }
+
+  /* Accessible keyboard focus */
+  .partner-contact-btn:focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-page;
+  }
+
+  /* Small screens */
+  @media (max-width: 480px) {
+    .partner-contact-btn {
+      @apply flex-1 px-3 py-3 text-xs;
+    }
+  }
+}
+```
