@@ -1,4 +1,3 @@
-```jsx
 import {
   Github,
   Linkedin,
@@ -22,9 +21,12 @@ export default function PartnerCard({ partner }) {
   const socialClass =
     "flex h-10 w-10 items-center justify-center rounded-full bg-brand-soft text-brand transition-all duration-300 hover:-translate-y-1 hover:rotate-6 hover:bg-brand hover:text-white";
 
+  const whatsappLink = whatsapp
+    ? `https://wa.me/${whatsapp.replace(/\D/g, "")}`
+    : "";
+
   return (
     <div className="group card-hover relative overflow-hidden rounded-2xl border border-line bg-surface p-8 shadow-soft">
-      {/* Left accent stripe */}
       <span className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-accent to-brand" />
 
       {/* Partner profile */}
@@ -36,7 +38,7 @@ export default function PartnerCard({ partner }) {
             className="h-20 w-20 shrink-0 rounded-full object-cover ring-4 ring-brand-soft transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-azure text-xl font-bold text-white ring-4 ring-brand-soft transition-transform duration-500 group-hover:scale-105">
+          <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-azure text-xl font-bold text-white ring-4 ring-brand-soft">
             {initials}
           </div>
         )}
@@ -52,19 +54,19 @@ export default function PartnerCard({ partner }) {
         </div>
       </div>
 
-      {/* Partner bio */}
+      {/* Partner description */}
       <p className="mt-6 pl-2 text-sm leading-relaxed text-body">
         {bio}
       </p>
 
-      {/* Email and WhatsApp contact buttons */}
+      {/* Email and WhatsApp */}
       {(email || whatsapp) && (
-        <div className="mt-6 flex flex-wrap gap-3 border-t border-line pl-2 pt-5">
+        <div className="partner-contact">
           {email && (
             <a
               href={`mailto:${email}`}
               aria-label={`Email ${name}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+              className="partner-contact-btn email-btn"
             >
               <Mail size={18} />
               Email
@@ -73,11 +75,11 @@ export default function PartnerCard({ partner }) {
 
           {whatsapp && (
             <a
-              href={`https://wa.me/${whatsapp.replace(/\D/g, "")}`}
+              href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`WhatsApp ${name}`}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+              className="partner-contact-btn whatsapp-btn"
             >
               <MessageCircle size={18} />
               WhatsApp
@@ -86,7 +88,7 @@ export default function PartnerCard({ partner }) {
         </div>
       )}
 
-      {/* Social media links */}
+      {/* Social media */}
       {(github || linkedin) && (
         <div className="mt-4 flex items-center gap-3 pl-2">
           {github && (
@@ -117,4 +119,3 @@ export default function PartnerCard({ partner }) {
     </div>
   );
 }
-```
