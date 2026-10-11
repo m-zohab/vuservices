@@ -36,8 +36,8 @@ export default function About() {
       />
       <PageHero
         eyebrow="Who we are"
-        title="Two VU students, built into a service"
-        description="We turned four semesters of our own coursework into a service that helps other VU students finish theirs — on time, and properly understood."
+        title="Your Trusted Partner for VU Academic & Technical Solutions"
+        description="Combining technical expertise and academic experience to deliver reliable project development, assignment support, and tailored solutions for Virtual University students."
       />
 
       <section className="bg-page py-20 lg:py-28">
