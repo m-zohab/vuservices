@@ -9,7 +9,7 @@ const GRADIENTS = [
 ];
 
 export default function ProjectCard({ project, index }) {
-  const { title, description, tags, type, category } = project;
+  const { title, description, tags, type, category, image } = project;
   const gradient = GRADIENTS[index % GRADIENTS.length];
   const Icon = type === "video" ? PlayCircle : ImageIcon;
 
