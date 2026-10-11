@@ -58,6 +58,8 @@ export const partners = [
     bio: "I focus on backend architecture and database design. I've supervised 20+ VU final year projects end-to-end, from proposal defense to final viva.",
     image: "/mishi.jpeg",
     initials: "MK",
+    email: "musharibahmadkhan@gmail.com",
+    whatsapp: "923267782692",
     github: "",
     linkedin: "",
   },
@@ -70,6 +72,8 @@ export const partners = [
     initials: "MZ",
     // Example of the conditional-rendering feature: this partner has no
     // LinkedIn link yet, so that icon will simply not appear on his card.
+    email: "muhammadzohaib4042@gmail.com",
+    whatsapp: "923276578059",
     github: "https://github.com/m-zohab/",
     linkedin: "",
   },
