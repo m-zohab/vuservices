@@ -18,7 +18,7 @@ export const siteConfig = {
 
   // WhatsApp number in international format, digits only (no "+", spaces or dashes).
   // Example for Pakistan: country code 92 + number without the leading 0.
-  whatsappNumber: "923001234567",
+  whatsappNumber: "923267782692",
 
   // Prefilled message that opens automatically in the WhatsApp chat.
   whatsappMessage:
@@ -56,7 +56,7 @@ export const partners = [
     name: "Musharib Ahmad Khan",
     semester: "BS Computer Science",
     bio: "I focus on backend architecture and database design. I've supervised 20+ VU final year projects end-to-end, from proposal defense to final viva.",
-    image: null,
+    image: "/mishi.jpeg",
     initials: "MK",
     github: "",
     linkedin: "",
@@ -194,6 +194,7 @@ export const projects = [
     tags: ["PHP", "MySQL", "Bootstrap"],
     category: "Web Development",
     type: "image",
+    image: "/book_store.jpeg"
   },
   {
     id: "project-2",
